@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>This could be a mini project. But it's just a placeholder.</p>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <p>Welcome! Please give me a number</p>
+  <input type="text" name="haha" id="input_box">
+  <button>Submit</button>
+  <div id="box"></div>
+
+</body>
+
 </html>
+
+<script>
+
+  var input_box = document.querySelector("input")
+  var btn = document.querySelector("button")
+  var box = document.getElementById("box")
+  list=["scream.png"]
+
+  function createEle() {
+    var img = document.createElement('div')
+    // img.style.width='10px'
+    // img.style.height='10px'
+    
+    img.className = 'img'
+    img.innerHTML = '<div></div>'
+    x=Math.floor((Math.random()*4))
+    y=Math.floor((Math.random()*4))
+    x=(-x*20+1)+'px '+(-y*20-2)+'px'
+    console.log(x)
+    console.log( )
+    img.style.backgroundPosition=x
+    box.appendChild(img)
+  }
+  btn.onclick = function () {
+    // if (!(+input_box.value)) {
+      //   return
+      // }
+      box.innerHTML=''
+
+    for (i = 0; i < input_box.value; i++) {
+      createEle()
+    }
+  }
+</script>
