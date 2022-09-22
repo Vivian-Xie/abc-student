@@ -2,7 +2,9 @@ body {
   white-space: nowrap;
   overflow: hidden
 }
-
+a{
+  z-index:9999
+}
 .rnOuter {
   background: hsl(0, 80%, 38%);
   overflow: hidden;
