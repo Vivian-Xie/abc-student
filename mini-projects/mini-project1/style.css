@@ -9,6 +9,7 @@ a{
 }
 #content{
     margin:50px 55px auto;
+    z-index: 1;
 }
 .side-bar{
     position:absolute;
