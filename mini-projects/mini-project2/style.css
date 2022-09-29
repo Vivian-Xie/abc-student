@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    background-color: #330662;
+    font-family: 'Gotham', 'Gotham', Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+#login_page {
+    overflow: hidden;
+    background-color: white;
+    /* width:300px; */
+    width: 550px;
+    height:538px;
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto auto;
+}
+#eyebrow{
+    height:30px;
+    width:100%;
+    background-color: #330662;
+}
+#heading{
+    width:100%;
+    padding: 32px 0 0 32px;
+}
+
+img {
+    height: 40px;
+}
+#head_text{
+    display: block;
+    width:100%;
+    height:66px;
+    line-height:66px;
+    font-weight: bold;
+    color: #3d4d5d;
+    /* font-size: 2rem; */
+}
+#middle{
+padding: 20px;
+padding-left:32px;
+display:flex;
+flex-direction: row;
+/* white-space: pre-wrap; */
+}
+#content{
+    flex-shrink: 1;
+    flex-grow: 0;
+    width:278px;
+}
+p{
+    /* flex-shrink: 0;
+    flex-grow: 1; */
+    width:232px;
+    padding: 20px 0 0 15px;
+    color: #3d4d5d;
+    font-size: 15px;
+    line-height: 1.47;
+}
+.user_input{
+    width:100%;
+    margin-bottom: 15px;
+}
+/* @font-face {
+    font-family:'Gotham SSm A';
+    
+    src:url('fonts/Gotham SSm A.eot');
+    
+    } */
+.user_input>span{
+    display: inline-block;
+    /* font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, sans-serif; */
+    /* src: url('Gotham SSm A.ttf'); */
+    font-weight: normal;
+    font-size: 15px;
+    color: #213243;
+    margin-bottom: 5px;
+    line-height: 1.42857143;
+}
+.user_input>input{
+    display: block;
+    width:212px;
+    height:28px;
+    border: 1px solid #e2e1dd;
+    padding: 6px 10px;
+    -webkit-appearance: none;
+    line-height: 30px;
+    border-radius: 0px;
+}
+p>span{
+    color: #57068c;
+    
+    text-decoration: underline;
+    cursor: pointer;
+}
+#policy{
+    margin-bottom: 10px;
+    width:100%;
+    padding:0;
+    font-style: italic;
+    
+}
+
+button{
+    display: block;
+    width:auto;
+    height:auto;
+    background-color: #ffffff;
+    border: solid 1px #57068c;
+    color: #57068c;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    /* font-size: large; */
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+}
+
+
+#ad{
+    position:absolute;
+    left:15%;
+    top:40%;
+    /* background-color: #57068c; */
+    width:500px;
+    height: 300px;
+    display: none;
+}
+
+#ad>img{
+    width:60%;
+    height:100%;
+    display: inline-block;
+}
+#ad>div{
+    background-color: #e2e1dd;
+    width:50%;
+}
