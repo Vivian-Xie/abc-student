@@ -58,11 +58,11 @@ function openSingleWindow(n){
 
         let ranX = Math.random() * screen.width - popUpWidth;
         let ranY = Math.random() * screen.height - popUpHeight;
-        let win = window.open("https://vivian-xie.github.io/abc-student/mini-projects/mini-project2/temp", "", "width=300,height=200,left=" + ranX + ",top=" + ranY)
+        let win = window.open("vivian-xie.github.io/abc-student/mini-projects/mini-project2/temp", "", "width=300,height=200,left=" + ranX + ",top=" + ranY)
         function closeWindow() {
             win.close()
         }
-        setTimeout(closeWindow, 2000)
+        setTimeout(closeWindow, 10000)
     }
 
 }
