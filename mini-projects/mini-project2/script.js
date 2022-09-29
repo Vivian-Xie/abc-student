@@ -36,11 +36,9 @@ function advertisement() {
     showImg()
     console.log("haha");
         // window.setInterval(CountDown, 1000)
+    }else{
+        window.open("https://brightspace.nyu.edu/d2l/home")
     }
-    // else if(count==7){
-
-    // }
-    // count++;
     press = false;
     counter++;
 }
