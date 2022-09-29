@@ -58,7 +58,7 @@ function openSingleWindow(n){
 
         let ranX = Math.random() * screen.width - popUpWidth;
         let ranY = Math.random() * screen.height - popUpHeight;
-        let win = window.open("", "", "width=300,height=200,left=" + ranX + ",top=" + ranY)
+        let win = window.open("https://vivian-xie.github.io/abc-student/mini-projects/mini-project2/temp", "", "width=300,height=200,left=" + ranX + ",top=" + ranY)
         function closeWindow() {
             win.close()
         }
@@ -71,9 +71,9 @@ let popUpWidth = 300
 let popUpHeight = 200
 link.onclick=function() {
     // console.log("button clicked");
-    openSingleWindow(20)
+    openSingleWindow(10)
 }
 secure.onclick=function() {
     // console.log("button clicked");
-    openSingleWindow(20)
+    openSingleWindow(10)
 }
