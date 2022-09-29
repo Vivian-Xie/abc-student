@@ -72,10 +72,10 @@ function openSingleWindow(n){
 let popUpWidth = 300
 let popUpHeight = 200
 link.onclick=function() {
-    console.log("button clicked");
+    // console.log("button clicked");
     openSingleWindow(20)
 }
 secure.onclick=function() {
-    console.log("button clicked");
+    // console.log("button clicked");
     openSingleWindow(20)
 }
