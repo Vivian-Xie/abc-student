@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        .side-bar {
+            z-index: 100;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            float: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box {
+            display: flex;
+            flex: 1;
+            height: auto;
+            /* width:100px; */
+            text-align: center;
+            /* background-color: rgba(255, 255, 255, 0.7);
+            border: 3px dotted gray; */
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 0 15px #ccc;
+            color: white;
+        }
+
+        #planet {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at 70% 30%, #0aafe6, #222222);
+            box-shadow: 0 0 15px #ccc;
+            color: white;
+            border-radius: 50%;
+            /* z-index: 5; */
+        }
+
+        #gallery-wrapper {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        #gallery-wrapper>div {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+
+        .ring {
+            position: absolute;
+            border-radius: 50%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            list-style: none;
+            text-align: center;
+            font-size: 50px;
+            box-shadow: 0 0 5px #ccc;
+            color: white;
+            line-height: 350px;
+            z-index: 1;
+        }
+
+        #gallery-wrapper>div>div:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            border: 2px solid gold;
+            border-left: 2px solid darkblue;
+            box-shadow: 0 0 5px #ccc;
+            border-right: 2px solid darkblue;
+        }
+
+        #gallery-wrapper>div>div:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            border: 2px solid gold;
+            border-left: 8px solid darkblue;
+            box-shadow: 0 0 5px #ccc;
+            border-right: 10px solid darkblue;
+
+            animation: turn 1s linear infinite;
+            transform-origin: 50% 50%;
+        }
+
+        @keyframes turn {
+            100% {
+                transform: rotateZ(-1turn);
+            }
+        }
+
+        /*# sourceMappingURL=3dGallery.css.map */
+    </style>
+</head>
+
+<body>
+    <div class="side-bar" id="bold">
+        <span class="box">color of the planet</span>
+        <span class="box">color of the orbits</span>
+        <span class="box"> number of the orbits</span>
+        <span class="box">music</span>
+        <!-- <span class="box">your window!</span> -->
+
+    </div>
+    <div id="planet"></div>
+    <div id="gallery-wrapper">
+        <div id="gallery-container">
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var mList = document.getElementsByClassName('ring');
+        var mBar = document.getElementsByClassName('box');
+        var mWrapper = document.getElementById("gallery-wrapper");
+        var mContainer = document.getElementById('gallery-container');
+        var planet = document.getElementById('planet');
+        // for (var i = 0; len = mList.length, i < len; i++) {
+        // mList[i].style.transform = "rotateY(" + i * 45 + "deg) translateZ(400px)";
+        // }
+
+        var endX = 0;
+        var endY = 0;
+        var galleryController = function () { };
+        galleryController.methods = function () {
+            return {
+                move: function () {
+                    mWrapper.onmousedown = function (ev) {
+                        var e = ev || event;
+                        //加入修正  使得获取的点击距离 相对于父窗体
+                        var fixX = mWrapper.offsetLeft;
+                        var fixY = mWrapper.offsetTop;
+                        console.log(fixX + "    " + fixY);
+                        var startX = e.clientX - fixX;
+                        var startY = e.clientY - fixY;
+                        console.log('鼠标按下时 X轴坐标' + startX);
+                        console.log('鼠标按下时 Y轴坐标' + startY);
+
+                        mBar[0].onclick = function () {
+                            console.log("haha");
+                            randomR = Math.floor((Math.random() * 255) + 1)
+                            randomG = Math.floor((Math.random() * 255) + 1)
+                            randomB = Math.floor((Math.random() * 255) + 1)
+                            planet.style.background = 'radial-gradient(circle at 70% 30%, rgb(' + randomR + "," + randomB + "," + randomG + "), #222222)";
+                        }
+                        
+                        mBar[1].onclick = function () {
+                            console.log(mList[0].style.border);
+                            randomR = Math.floor((Math.random() * 255) + 1)
+                            randomG = Math.floor((Math.random() * 255) + 1)
+                            randomB = Math.floor((Math.random() * 255) + 1)
+                            for (var i = 0; len = mList.length, i < len; i++) {
+                            mList[i].style.borderTop = "2px solid rgb(" + randomR + "," + randomB + "," + randomG + ")";
+                            mList[i].style.borderBottom = "2px solid rgb(" + randomR + "," + randomB + "," + randomG + ")";
+                            }
+                        }
+                        mBar[2].onclick = function () {
+                            
+                        }
+                        mWrapper.onmousemove = function (ev) {
+                            var e = ev || event;
+                            var moveX = ((e.clientX - fixX) - startX) + endX;
+                            var moveY = ((e.clientY - fixY) - startY) + endY;
+                            mContainer.style.transform = 'rotateY(' + (moveX) + 'deg) rotateX(' + (moveY) + 'deg)';
+                            //    console.log((moveY+550)/15);
+                            //    for (var i = 0; len = mList.length, i < len; i++) {
+                            let light_range = ((moveX + 500) / 10 - 40) * 5;
+                            if (light_range < 0) {
+                                light_range = 0
+                            }
+                            else if (light_range > 100) {
+                                light_range = 100
+                            }
+                            planet.style.background = 'radial-gradient(circle at ' + light_range + "%" + (moveY + 550) / 18 + "%)";
+                        
+                            //    }
+                            mWrapper.onmouseup = function () {
+                                console.log('鼠标抬起');
+                                mWrapper.onmousemove = null;
+                                endX = moveX;
+                                endY = moveY;
+                            }
+                        }
+                        return false;
+                    }
+                },
+                stopBabel: function () {
+                    mContainer.ondragstart = function () {
+                        return false;
+                    }
+                    mContainer.onclick = function () {
+                        return false;
+                    }
+                    for (var i = 0; len = mList.length, i < len; i++) {
+                        mList[i].ondragstart = function () {
+                            return false;
+                        };
+                        mList[i].onclick = function () {
+                            return false;
+                        };
+                    }
+                },
+                init: function () {
+                    this.stopBabel();
+                    this.move();
+                }
+            }
+        }();
+        galleryController.methods.init();
+    }
+</script>
+
+</html>

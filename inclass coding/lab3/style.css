@@ -1,0 +1,73 @@
+.box {
+    width: 80px;
+    height: 80px;
+    background-color: chocolate;
+    margin: 10px;
+
+    transform: font-size 1s;
+}
+
+.box-1{
+animation-name:spin;
+animation-duration: 1s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.box-2{
+animation-name: shrink;
+animation-duration: 2s;
+/* animation-fill-mode: forwards; */
+animation-iteration-count: infinite;
+}
+
+@keyframes shrink{
+    0%{
+        width:80px;
+        height:80px;
+    }50%{
+        width:20px;
+        height:20px;
+    }100%{
+        width:80px;
+        height:80px;
+    }
+}
+
+.box-4{
+    position:relative;
+    left:30px;
+    animation-name: mixAnimation;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    /* animation-fill-mode: forwards; */
+}
+
+@keyframes mixAnimation{
+ 0%{
+    left:0px;
+    transform: rotate(0deg);
+ }
+ 40%{
+    left:200px;
+    transform: rotate(0deg);
+ }
+ 60%{
+    left:200px;
+    transform: rotate(360deg);
+}
+100%{
+    LEFT:0px;
+    transform: rotate(360deg);
+ }
+}
