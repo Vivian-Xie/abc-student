@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>planet</title>
+
     <style>
         * {
             margin: 0;
@@ -120,11 +123,35 @@
             }
         }
 
-        /*# sourceMappingURL=3dGallery.css.map */
+        audio {
+            position: relative;
+            z-index: 1000;
+        }
+
+        h1 {
+            color: white;
+            float: right;
+            width: 100%;
+            /* text-align: right; */
+            font-size: xx-large;
+        }
+
+        h2 {
+            color: white;
+            /* float:right; */
+            font-size: x-large;
+        }
     </style>
 </head>
 
 <body>
+    <audio src="audio\bgmusic.wav" controls="controls" id="audio1" autoplay="True" hidden="true" loop="true">
+        does not support
+    </audio>
+    <!-- <audio src="audio\button.wav" controls="controls" id="audio2"  hidden="true" loop="false"> -->
+        <!-- does not support
+    </audio> -->
+    <h1>Design Your Planet</h1>
     <div class="side-bar" id="bold">
         <span class="box">color of the planet</span>
         <span class="box">color of the orbits</span>
@@ -140,6 +167,7 @@
             <div class="ring"></div>
         </div>
     </div>
+
 </body>
 <script type="text/javascript">
     window.onload = function () {
@@ -148,9 +176,39 @@
         var mWrapper = document.getElementById("gallery-wrapper");
         var mContainer = document.getElementById('gallery-container');
         var planet = document.getElementById('planet');
+        // var sound = document.getElementById('audio2');
         // for (var i = 0; len = mList.length, i < len; i++) {
         // mList[i].style.transform = "rotateY(" + i * 45 + "deg) translateZ(400px)";
         // }
+
+
+
+        mBar[0].onclick = function () {
+            // console.log("haha");
+        
+            randomR = Math.floor((Math.random() * 255) + 1)
+            randomG = Math.floor((Math.random() * 255) + 1)
+            randomB = Math.floor((Math.random() * 255) + 1)
+            planet.style.background = 'radial-gradient(circle at 70% 30%, rgb(' + randomR + "," + randomB + "," + randomG + "), #222222)";
+            // sound.pause()
+        }
+
+        mBar[1].onclick = function () {
+            // console.log(mList[0].style.border);
+            randomR = Math.floor((Math.random() * 255) + 1)
+            randomG = Math.floor((Math.random() * 255) + 1)
+            randomB = Math.floor((Math.random() * 255) + 1)
+            for (var i = 0; len = mList.length, i < len; i++) {
+                mList[i].style.borderTop = "2px solid rgb(" + randomR + "," + randomB + "," + randomG + ")";
+                mList[i].style.borderBottom = "2px solid rgb(" + randomR + "," + randomB + "," + randomG + ")";
+            }
+        }
+        console.log("create");
+        var outer_orbit = document.createElement("div")
+        mBar[2].onclick = function () {
+            mContainer.appendChild(outer_orbit)
+            outer_orbit.className = 'ring'
+        }
 
         var endX = 0;
         var endY = 0;
@@ -169,27 +227,7 @@
                         console.log('鼠标按下时 X轴坐标' + startX);
                         console.log('鼠标按下时 Y轴坐标' + startY);
 
-                        mBar[0].onclick = function () {
-                            console.log("haha");
-                            randomR = Math.floor((Math.random() * 255) + 1)
-                            randomG = Math.floor((Math.random() * 255) + 1)
-                            randomB = Math.floor((Math.random() * 255) + 1)
-                            planet.style.background = 'radial-gradient(circle at 70% 30%, rgb(' + randomR + "," + randomB + "," + randomG + "), #222222)";
-                        }
-                        
-                        mBar[1].onclick = function () {
-                            console.log(mList[0].style.border);
-                            randomR = Math.floor((Math.random() * 255) + 1)
-                            randomG = Math.floor((Math.random() * 255) + 1)
-                            randomB = Math.floor((Math.random() * 255) + 1)
-                            for (var i = 0; len = mList.length, i < len; i++) {
-                            mList[i].style.borderTop = "2px solid rgb(" + randomR + "," + randomB + "," + randomG + ")";
-                            mList[i].style.borderBottom = "2px solid rgb(" + randomR + "," + randomB + "," + randomG + ")";
-                            }
-                        }
-                        mBar[2].onclick = function () {
-                            
-                        }
+
                         mWrapper.onmousemove = function (ev) {
                             var e = ev || event;
                             var moveX = ((e.clientX - fixX) - startX) + endX;
@@ -205,7 +243,7 @@
                                 light_range = 100
                             }
                             planet.style.background = 'radial-gradient(circle at ' + light_range + "%" + (moveY + 550) / 18 + "%)";
-                        
+
                             //    }
                             mWrapper.onmouseup = function () {
                                 console.log('鼠标抬起');
