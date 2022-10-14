@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.https": {
+      "enable": true,
+      "cert": "D:\\Abc Browser\\my first clone\\abc-student\\inclass-coding\\phone-lab\\localhost.pem",
+      "key": "D:\\Abc Browser\\my first clone\\abc-student\\inclass-coding\\phone-lab\\localhost.key",
+      "passphrase": "12345"
+    }
+  }
+

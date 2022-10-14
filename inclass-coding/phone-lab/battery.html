@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+<!--主题-->
+<section class="sec">
+<!--主题方格-->
+    <div class="box">
+<!--        方格中央-->
+        <div class="content">
+            <h3>Battery</h3>
+<!--            电池外方格-->
+            <div class="batteryShape">
+<!--                电池内部阴影-->
+                <div class="level">
+<!--                    电池显示效果-->
+                    <div class="percentage">
+
+                    </div>
+                </div>
+            </div>
+<!--            电池电量显示-->
+            <div class="percent">
+                50%
+            </div>
+<!--            是否在充电-->
+            <p class="batteryTime">Charging or not</p>
+        </div>
+    </div>
+    <p id="lang">language</p>
+    <button>yes</button>
+</section>
+<script type="text/javascript">
+// <!--    获取电池显示效果与电池电量显示-->
+    var pt = document.querySelector('.percentage');
+    var p = document.querySelector('.percent');
+    var btn = document.querySelector('button');
+    var language = document.querySelector('#lang');
+
+
+    navigator.getBattery().then(function(battery) {
+
+        // 是否正在充电，yes-充电
+        // console.log("Battery charging? " + (battery.charging ? "yes" : "no"));
+
+        // 当前剩余电量
+        // console.log("Battery level: " + battery.level * 100 + "%");
+
+        // btn.onclick=function(){
+        pt.style.width = battery.level * 100 + "%";
+        p.innerHTML = battery.level * 100 + "%"
+
+        var charging = battery.charging ? "yes" : "no";
+        if (charging === "yes"){
+            document.getElementsByClassName('batteryTime')[0].innerHTML = 'Charging';
+        }else {
+            document.getElementsByClassName('batteryTime')[0].innerHTML = 'Not Charging';
+        }
+        var lang = navigator.userLanguage||window.navigator.language;
+        console.log(lang);
+        console.log(language.innerHTML);
+        if (lang=='zh-CN'){
+
+            language.innerHTML = "Chinese";
+        }
+        else if(lang=='en-US'){
+            
+            language.innerHTML = "English";
+        }
+    // }
+    });
+
+
+</script>
+</body>
+</html>

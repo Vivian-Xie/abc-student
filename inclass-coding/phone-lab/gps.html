@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>GPS location </title>
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="demoo">
+            <p>GPS Location: <span id="demo"></span></p>
+            <p>clipboard Content: <span id="clip"></span></p>
+            <p>GPS city: <span id="city"></span></p>
+        </div>
+        <button id="btn">yes</button>
+    </div>
+    </div>
+
+    <script>
+
+        var x = document.getElementById("demo");
+        var cityName = document.getElementById("city");
+        var y = document.getElementById("clip");
+        var btn = document.getElementById("btn");
+        const clipboardObj = navigator.clipboard;
+        function getLocation() {
+            if (navigator.geolocation) {   //检测是否支持地理定位
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+            // console.log(x);
+        }
+
+
+        var reallat, reallon;
+        var iplat, iplon;
+
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br />Longitude: " + position.coords.longitude;
+            reallat = position.coords.latitude;
+            reallon = position.coords.longitude;
+            // return [lat,lon]
+            // getAddress(lat, lon);
+            getCity(reallat,reallon);
+        }
+
+
+
+        function readClipboard() {
+
+
+            setTimeout(async () => {
+                const text = await navigator.clipboard.readText();
+                console.log(text);
+            }, 2000);
+        }
+        async function getClipboardContents() {
+            try {
+                const text = await navigator.clipboard.readText();
+                console.log('Pasted content: ', text);
+                if (text == '') {
+                    y.innerText = "It seems that you have nothing in your clipboard."
+                } else {
+                    y.innerHTML = text;
+
+                }
+            } catch (err) {
+                console.error('Failed to read clipboard contents: ', err);
+                y.innerText = "It seems that you have nothing in your clipboard."
+
+            }
+            //     navigator.permissions.query({ name: "clipboard-read" }).then((result) => {
+            //   if (result.state == "granted" || result.state == "prompt") {
+            //     alert("Read access ranted!");
+            //   }
+            // });
+            // navigator.clipboard
+            //   .readText()
+            //   .then((copiedText) => {
+            //         // Do something with copied text
+            //    });
+        }
+
+
+
+        function getCity(lat, lng) {
+            var xhr = new XMLHttpRequest();
+
+            // Paste your LocationIQ token below.
+            xhr.open('GET', 'https://us1.locationiq.com/v1/reverse.php?key=pk.5f26a4f164a59aa0819c163e69989b63&lat=' +
+                lat + "&lon=" + lng + "&format=json", true);
+            xhr.send();
+            xhr.onreadystatechange = processRequest;
+            xhr.addEventListener("readystatechange", processRequest, false);
+
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var city = response.address;
+                    console.log(response.address.city)
+                    // alert(city);
+                    return;
+                }
+            }
+        }
+
+
+
+
+        getLocation()
+        readClipboard();
+        getClipboardContents()
+        btn.onclick = function () {
+
+            fetch('https://api.ipregistry.co/?key=tryout')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (payload) {
+                    iplat = payload.location.latitude;
+                    iplon = payload.location.longitude;
+
+                    ipaddress = payload.location.country
+                });
+
+
+
+            if (parseInt(reallat) !== parseInt(iplat) && parseInt(reallon) !== parseInt(iplon)) {
+                cityName.innerHTML = "It seems that you are using vpn."
+            } else {
+                cityName.innerHTML = "It seems that you are at" + ipaddress
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
