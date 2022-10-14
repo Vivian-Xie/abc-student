@@ -1,0 +1,80 @@
+*{
+    margin:0 0;
+    padding:0 0;
+}
+
+/* 设置全局变量 */
+:root{
+    --delay1:3;
+    --delay2:5;
+    --main-txt-color:#333;
+    --header-bg-color:#6767cc;
+    --header-txt-color:#fff;
+    --container-width:90%;
+  }
+  
+
+
+body{
+    background: rgb(0,4,114);
+    overflow:hidden;
+}
+
+#photo{
+    width:100%;
+    display: relative;
+    height:70vh;
+    text-align: center;
+}
+#fortune_teller{
+    width:auto;
+    height:70vh;
+    display: inline-block;
+    /* margin:auto; */
+    margin-left:auto;
+    margin-right:auto;
+    /* left: 50%;
+    margin-left: -80vw; */
+}
+
+
+
+.chatbbox{
+    position:relative;
+}
+
+.word{
+    margin-top: 3vw;
+    position:absolute;
+    left:0;
+    right:0;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.btn{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    text-align: center;
+    color:white;
+    font-weight: 700;
+    font-size: large;
+}
+
+.ans{
+    display:none;
+    position:absolute;
+    width:85%;
+    ;
+    left:0;
+    right:0;
+    text-align: center;
+    color:white;
+    font-weight: 700;
+    font-size: large;
+
+}
