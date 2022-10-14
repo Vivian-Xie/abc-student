@@ -39,8 +39,9 @@ body{
 
 
 
-.chatbbox{
+.chatbox{
     position:relative;
+    text-align: center;     
 }
 
 .word{
@@ -55,23 +56,36 @@ body{
 }
 
 .btn{
+    margin-top: 3vw;
     display:none;
     position:absolute;
     left:0;
     right:0;
     text-align: center;
     color:white;
-    font-weight: 700;
+    font-weight: 900;
     font-size: large;
+    cursor: pointer;
+}
+.btn:hover{
+    font-style: italic;
+    text-shadow: 0 0 30px #ccc;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 
 .ans{
+    margin-top: 3vw;
     display:none;
-    position:absolute;
+    /* position:absolute; */
     width:85%;
-    ;
-    left:0;
-    right:0;
+    height:30vh;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    /* left:0;
+    right:0; */
     text-align: center;
     color:white;
     font-weight: 700;
