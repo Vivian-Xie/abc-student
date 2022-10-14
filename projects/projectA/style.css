@@ -18,7 +18,9 @@
 body{
     background: rgb(0,4,114);
     overflow:hidden;
+    
 }
+
 
 #photo{
     width:100%;
@@ -36,6 +38,17 @@ body{
     /* left: 50%;
     margin-left: -80vw; */
 }
+/* #glow{
+    position:absolute;
+    left:44%;
+    top:50%;
+    background-color: white;
+    border-radius: 50%;
+    width:13vw;
+    height:13vw;
+    z-index:1000;
+} */
+
 
 @keyframes breath {
     0%{
@@ -73,7 +86,7 @@ body{
 }
 
 .btn{
-    margin-top: 5vw;
+    margin-top: 3vw;
     display:none;
     position:absolute;
     left:0;
@@ -99,7 +112,7 @@ body{
     display:none;
     /* position:absolute; */
     width:85%;
-    height:20vh;
+    max-height:20vh;
     margin-left: auto;
     margin-right: auto;
     white-space: pre-wrap;

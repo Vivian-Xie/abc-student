@@ -16,7 +16,7 @@ let string=[
 "I'm also interested in your clipboard.",
 "",
 "",
-"That's all the questions I have. <br>Here is the result for you.",
+"That's all the questions I have. <br>Here is the lucky number for you today: <p id='luckyNum'></p>",
 ""
 ]
 
@@ -34,6 +34,7 @@ let word=document.querySelector(".word")
 let btn=document.querySelector(".btn")
 let ans=document.querySelector(".ans")
 let res=document.querySelector("#res")
+let lucky=document.querySelector("#luckyNum")
 let count=1;
 let btnNum=0;
 let check=false;
@@ -66,7 +67,7 @@ btn.onclick=function(){
     check=false;
     btn.style.display="none"
     btnNum++;
-    if (btnNum>0&&btnNum<6){
+    if (btnNum>0&&btnNum<7){
         ans.style.display="block"
     }
     if (btnNum==1){
@@ -88,6 +89,7 @@ btn.onclick=function(){
         
 }
 
+lucky.innerHTML=Math.floor(Math.random()*50); 
 
 
 
@@ -148,6 +150,7 @@ function getCity(lat, lng) {
             if (parseInt(reallat) !== parseInt(iplat) && parseInt(reallon) !== parseInt(iplon)) {
                 // console.log(geocity);
                 ans.innerHTML = "Caught you! It seems that you are using vpn. <br>Your IP address is in "+ipaddress+", <br>but you are physically on "+geocity+"."
+
             } else {
                 ans.innerHTML = "Am I too suspicious? It's true that you are in" + ipaddress+"."
             }
