@@ -33,6 +33,7 @@ let btnContent=[
 let word=document.querySelector(".word")
 let btn=document.querySelector(".btn")
 let ans=document.querySelector(".ans")
+let res=document.querySelector("#res")
 let count=1;
 let btnNum=0;
 let check=false;
@@ -179,7 +180,7 @@ function getBattery(){
 navigator.getBattery().then(function(battery) {
     batteryNum = battery.level * 100
     if (batteryNum==100){
-        ans.innerHTML="100%? Your energy is so full that it starts to overflow!"
+        ans.innerHTML="100%? Your energy is starting to overflow!"
     }else if(batteryNum>50){
         ans.innerHTML=batteryNum+"%. Dynamic energy for daily use."
     }else if(batteryNum>20){
@@ -215,4 +216,28 @@ async function getClipboardContents() {
 
     }
 }
+
+let Width = document.documentElement.clientWidth;
+    let Height = document.documentElement.clientHeight;
+    for(let i=0;i<227;i++){
+        //createElement() 方法通过指定名称创建一个元素
+        //1、创建星星
+        let Star = document.createElement("span");
+        //2、document.body.appendChild(元素)把创建的星星添加到body中
+        document.body.appendChild(Star);
+        //3、星星的位置随机
+        let x = Math.random() * Width;
+        let y = Math.random() * Height;
+        Star.style.left = x + "px";
+        Star.style.top = y + "px";
+        //4、随机缩放
+        let SuoFang = Math.random() * 2;
+        //注意点：`scale(${SuoFang}, ${SuoFang})`这是字符串模板（${}）,不是字符串；
+        //字符串用的是"",'',而字符串模板是用反引号``来包裹。
+        Star.style.transform = `scale(${SuoFang}, ${SuoFang})`;
+        //5、随机动画延迟
+        let rate = Math.random() * 2;
+        //CSS中的animation-delay设置延迟
+        Star.style.animationDelay = rate + "s";    //延迟，事件单位为秒"s"
+    }
       
