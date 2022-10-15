@@ -33,7 +33,7 @@ let btnContent=[
 let word=document.querySelector(".word")
 let btn=document.querySelector(".btn")
 let ans=document.querySelector(".ans")
-let res=document.querySelector("#res")
+let res=document.querySelector("#result")
 let lucky=document.querySelector("#luckyNum")
 let count=1;
 let btnNum=0;
@@ -46,7 +46,8 @@ var iplat,iplon;
 var ipaddress,iplanguage,iplancode;
 var geocity,batterNum;
 window.onclick=function(){
-    console.log(btnNum);
+    // console.log(btnNum);
+    console.log(count);
     if (check) return
     if (count>0&&count<19){
         if (count%3==0){
@@ -58,7 +59,10 @@ window.onclick=function(){
             ans.style.display="none"
         }
     }
-    if (count==19) return
+    if (count==18){
+        res.innerHTML=Math.floor(Math.random()*50); 
+        res.style.opacity="1";
+    }
 word.innerHTML=string[count]
     count+=1;
 }
@@ -86,15 +90,16 @@ btn.onclick=function(){
         getClipboardContents();
         
     }
+    
         
 }
 
-lucky.innerHTML=Math.floor(Math.random()*50); 
 
 
 
 /////btn1
 function getIP(){
+// fetch('https://api.ipregistry.co/?key=tryout')
 fetch('https://api.ipregistry.co/202.66.60.186?key=51n25fgvczbxjdf1')
 .then(function (response) {
     return response.json();
