@@ -99,8 +99,8 @@ btn.onclick=function(){
 
 /////btn1
 function getIP(){
-// fetch('https://api.ipregistry.co/?key=tryout')
-fetch('https://api.ipregistry.co/202.66.60.186?key=51n25fgvczbxjdf1')
+fetch('https://api.ipregistry.co/?key=tryout')
+// fetch('https://api.ip/registry.co/202.66.60.186?key=51n25fgvczbxjdf1')
 .then(function (response) {
     return response.json();
 })
