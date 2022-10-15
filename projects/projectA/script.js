@@ -39,7 +39,7 @@ let count=1;
 let btnNum=0;
 let check=false;
 
-console.log(ans);
+// console.log(ans);
 
 var reallat,reallon;
 var iplat,iplon;
