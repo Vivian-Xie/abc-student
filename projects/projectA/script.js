@@ -60,7 +60,8 @@ window.onclick=function(){
         }
     }
     if (count==18){
-        res.innerHTML=Math.floor(Math.random()*50); 
+        // res.innerHTML=Math.floor(Math.random()*50); 
+        res.innerHTML='text'; 
         res.style.opacity="1";
     }
 word.innerHTML=string[count]
@@ -157,7 +158,7 @@ function getCity(lat, lng) {
                 ans.innerHTML = "Caught you! It seems that you are using vpn. <br>Your IP address is in "+ipaddress+", <br>but you are physically on "+geocity+"."
 
             } else {
-                ans.innerHTML = "Am I too suspicious? It's true that you are in" + ipaddress+"."
+                ans.innerHTML = "Am I too suspicious? It's true that you are in " + ipaddress+"."
             }
             return;
         }

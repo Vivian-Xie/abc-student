@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Abc browser chrome inclass example",
+    "version": "1.0",
+    "description": "Replace words with words",
+    "content_scripts": [
+        {
+          "js": ["content.js"],
+          "matches": [
+            "<all_urls>"
+          ]
+        }
+      ],
+      "action": {
+        "default_title": "Click Me",   
+        "default_popup": "popup/popup.html"  
+      }
+  }
