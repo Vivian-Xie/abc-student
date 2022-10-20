@@ -1,6 +1,6 @@
 Project A-What the fortune teller says 
 
-![Image text](https://vivian-xie.github.io/abc-student/projects/projectA/GIF.gif)
+![Image text](GIF.gif)
 
 My project is an interactive conversation with the fortune teller on the web page. By following the instructions and clicking on the agreements, the users’ computers send requests to get the location, IP address, system language of the users through API. To make the experience more responsive, the fortune teller will respond with different scripts according to the information she gets and make some predictions according to integration of different information. For example, she will say that “You might be a foreigner. Is the language for your system your mother tongue?” when the standard language used for the user’s location is different from the user’s system language. 
 
