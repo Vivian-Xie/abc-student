@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Vivian's project 4",
+    "version": "1.0",
+    "description": "tomato clock",
+    "content_scripts": [
+        {
+          "js": ["content.js"],
+          "matches": [
+            "<all_urls>"
+          ]
+        }
+      ],
+      "action": {
+        "default_title": "tomato.jpg",   
+        "default_popup": "popup/popup.html"  
+      }
+  }

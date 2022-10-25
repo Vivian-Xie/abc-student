@@ -1,0 +1,15 @@
+*{
+  margin:0 0;
+  padding:0 0;
+}
+
+body{
+  width:250px;
+  height: 80px;
+  margin:20px;
+}
+
+button{
+  display: inline-block;
+  
+}
