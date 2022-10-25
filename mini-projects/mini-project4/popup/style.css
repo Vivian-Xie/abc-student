@@ -11,5 +11,20 @@ body{
 
 button{
   display: inline-block;
-  
+
+}
+.spin:hover{
+  animation:spin;
+  animation-duration: 1s;
+}
+
+@keyframes spin {
+  0%{
+    tansform:rotate(0deg);
+    opacity:1
+  }
+  100% {
+      transform: rotate(360deg);
+      opacity:0;
+  }
 }
