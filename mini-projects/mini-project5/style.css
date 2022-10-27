@@ -1,0 +1,95 @@
+.water_wrap {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    margin: 0 0;
+    padding: 0 0;
+    pointer-events: none;
+}
+
+.water {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 104px;
+    left: 120%;
+    transform: ratate(190deg);
+    /* margin-left: -50px; */
+    animation: water 12s linear infinite;
+    background: rgb(9, 174, 227);
+    border-radius: 34%;
+}
+
+@keyframes water {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.full_screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    pointer-events: none;
+}
+
+.fish {
+    margin-left:40px;
+    width: 0px;
+    height: 0px;
+    top: 80%;
+    position: relative;
+    border-top: 40px solid transparent;
+    border-left: 50px solid transparent;
+    border-right: 50px solid orange;
+    border-bottom: 40px solid transparent;
+    animation: swim 1s linear infinite;
+}
+
+@keyframes swim {
+    0% {
+        top: 77%;
+        border-top: 40px solid transparent;
+        border-bottom: 40px solid transparent;
+    }
+
+    50% {
+        top: 78%;
+        border-top: 43px solid transparent;
+        border-bottom: 43px solid transparent;
+    }
+
+    100% {
+        top: 77%;
+        border-top: 40px solid transparent;
+        border-bottom: 40px solid transparent;
+    }
+}
+
+.eye {
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    position: absolute;
+    top: -9px;
+    left: 13px;
+    border-radius: 50%;
+}
+
+.tail {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -10px;
+    left: 40px;
+    border-top: 12px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid orange;
+    border-bottom: 12px solid transparent;
+
+}

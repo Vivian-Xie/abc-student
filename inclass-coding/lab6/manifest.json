@@ -1,16 +1,13 @@
 {
-    "manifest_version": 3,
-    "name": "Counting forever",
+    "name": "Counting Forever",
     "version": "1.0",
-    "description": "...forever",
+    "description": "...forever ever?",
+    "manifest_version": 3,
     "action": {
-        "default_title": "tent.png",   
-        "default_popup": "popup/popup.html"  
+      "default_icon": "tomato.jpg",
+      "default_popup": "popup/popup.html"
     },
-    "permissions":[        
-        "storage"
-    ],
-    "background":{
-        "service_worker":"background.js"
+    "background": {
+      "service_worker": "background.js"
     }
-  }
+}

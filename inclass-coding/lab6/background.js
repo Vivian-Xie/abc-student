@@ -1,25 +1,21 @@
-console.log("Vivian is making an extension");
-let count = 12345;
+console.log("leon is sitting in the background waiting for news.")
 
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        //   console.log(sender.tab ?
-        //               "from a content script:" + sender.tab.url :
-        //               "from the extension");
-        //               console.log(request);
+let count = 0;
 
-        // The line below shows who is the message coming from
-        // if (sender.tab == true){
-        //     console.log("from a content script:"+sender.tab.url);
-        // }else{
-        //     console.log("from the extension");
-        // }
-        // console.log(request);
 
-        if (request.message === "remind me of the count"){
-            sendResponse({ theCount: count });
-        }else if (request.message=="count went up"){
-            count++;
-        }
-    }
-);
+
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
+      
+    //   console.log("background script: GOT MESSAGE:", request)
+         
+      if (request.message === "remind me of the count"){
+        let myResponse = {theCount: count};
+        // console.log("background script: REPLYING:", myResponse);
+        sendResponse( myResponse );
+      }else if(request.message == "count went up"){
+        // console.log("background script: COUNT WENT UP:", count);
+        count++;
+
+      } 
+});

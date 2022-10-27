@@ -1,40 +1,60 @@
 // https://developer.chrome.com/extensions/messaging
 // when the button in the popup window is clicked...
 
-let btn=document.getElementById("start")
-var maxtime = 25 * 60;
-let min= document.querySelector("#min")
-let sec= document.querySelector("#sec")
+let btn = document.getElementById("start")
+let min = document.querySelector("#min")
+let sec = document.querySelector("#sec")
+let text = document.getElementsByTagName("div")
 
-btn.addEventListener("click", ()=>{
-  // we retrieve the values in the text inputs:
-  setInterval(
-    function CountDown() {
-    console.log("go"); 
-     if (maxtime >= 0) {
-        minutes = Math.floor(maxtime / 60);
-         seconds = Math.floor(maxtime % 60);
-         minutes=size(minutes)
-         seconds=size(seconds)
-         min.innerHTML = minutes;
-         sec.innerHTML = seconds;
-     }else{
-      
-     }
-  }, 1000);
+btn.addEventListener("click", () => {
+  console.log("clicked");
+  start = true
+  countDown()
+  chrome.runtime.sendMessage({ message: "btn_clicked" })
+})
 
+let start = false;
+let minutes, seconds;
+let maxtime = 10;
+function countDown() {
+  function CountDown() {
+    btn.disabled = "disabled"
+
+    
+    if (maxtime >= 0) {
+      minutes = parseInt(maxtime / 60 % 60);
+      seconds = parseInt(maxtime % 60);
+      minutes = size(minutes)
+      seconds = size(seconds)
+      min.innerHTML = minutes;
+      sec.innerHTML = seconds;
+    }
+    else {
+      clearInterval(timer);
+      maxtime = 10;
+      debounce = false
+      btn.disabled = ""
+    }
+    maxtime -= 1;
+  }
+
+  timer = setInterval(CountDown, 1000)
+
+}
 function size(num) {
   return num < 10 & num >= 0 ? '0' + num : num;
-}  
-  // now we ask the browser what the currently active tab in the active window is:
-  // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  //   let text=document.getElementsByTagName("span")
-  //   for (let i=0;i<text.length;i++){
-  //       text[i].innerHTML="Go Back to study."
-  //       text[i].style.fontSize="large"
-  //   }
-  // });
-})
+}
+
+chrome.runtime.sendMessage({ message: "start and stop counting" }, function (response) {
+  console.log("hear from backgr:", response);
+  if (typeof mytime !== "undefined" && mytime.min !== "undefined" && mytime.sec !== "undefined") {
+    min.innerHTML = response.min;
+    sec.innerHTML = response.sec;
+  }
+});
+
+
+
 
 
 

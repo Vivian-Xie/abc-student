@@ -16,6 +16,7 @@ button{
 .spin:hover{
   animation:spin;
   animation-duration: 1s;
+  position: absolute;
 }
 
 @keyframes spin {

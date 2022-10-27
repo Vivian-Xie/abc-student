@@ -1,22 +1,20 @@
 {
     "manifest_version": 3,
-    "name": "Vivian's project 4",
+    "name": "Vivian's project 5",
     "version": "1.0",
-    "description": "tomato clock",
+    "description": "dive into the ocean",
     "content_scripts": [
         {
           "js": ["content.js"],
+          "css": ["style.css"],
           "matches": [
             "<all_urls>"
-          ]
+          ],
+          "run_at": "document_start"
         }
       ],
-      "permissions": [
-        "activeTab"
-      ],
       "action": {
-        "default_title": "tomato.jpg",   
-        "default_popup": "popup/popup.html"  
+        "default_title": "tomato.jpg"
       },
       "background": {
         "service_worker": "content.js"
