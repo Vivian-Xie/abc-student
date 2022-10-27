@@ -9,13 +9,11 @@
           "css": ["style.css"],
           "matches": [
             "<all_urls>"
-          ]
+          ],
+          "run_at": "document_start"
         }
       ],
       "action": {
         "default_title": "tomato.jpg"
-      },
-      "background": {
-        "service_worker": "content.js"
       }
   }
