@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "link-eater",
+  "version": "1.0",
+  "description": "a lizard that eats link",
+  "content_scripts": [
+    {
+  
+      "js": [
+        "content.js"
+      ],
+      "css":[
+        "style.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+      
+    }
+  ],
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "16": "icon.png"
+
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "service_worker": "background.js"
+}

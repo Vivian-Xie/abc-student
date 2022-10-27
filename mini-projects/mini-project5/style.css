@@ -1,11 +1,14 @@
 .water_wrap {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     position: fixed;
+    top:0;
+    left:0;
     overflow: hidden;
     margin: 0 0;
     padding: 0 0;
     pointer-events: none;
+    z-index:999;
 }
 
 .water {
@@ -17,7 +20,8 @@
     transform: ratate(190deg);
     /* margin-left: -50px; */
     animation: water 12s linear infinite;
-    background: rgb(9, 174, 227);
+    background: rgba(9, 174, 227,0.25);
+    /* opacity:0.15; */
     border-radius: 34%;
 }
 
@@ -35,7 +39,11 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
+    top:0;
+    left:0;
     pointer-events: none;
+    z-index:9999;
+    opacity:0.85;
 }
 
 .fish {
@@ -49,11 +57,12 @@
     border-right: 50px solid orange;
     border-bottom: 40px solid transparent;
     animation: swim 1s linear infinite;
+    
 }
 
 @keyframes swim {
     0% {
-        top: 77%;
+        top: 77%;     
         border-top: 40px solid transparent;
         border-bottom: 40px solid transparent;
     }

@@ -1,0 +1,10 @@
+.tongue{
+position:fixed;
+left:0;
+/* depend on the lizard */
+top:30%;
+background-image: url('./images/tongue.png');
+width:200px;
+height:30px;
+
+}
