@@ -1,13 +1,13 @@
-var flag = 0;
+
 let water_wrap=document.createElement('div')
-document.body.appendChild(water_wrap)
+document.documentElement.appendChild(water_wrap)
 water_wrap.className="water_wrap"
 let water=document.createElement('div')
 water_wrap.appendChild(water)
 water.className="water"
 
 let full_screen=document.createElement('div')
-document.body.appendChild(full_screen)
+document.documentElement.appendChild(full_screen)
 full_screen.className="full_screen"
 let fish=document.createElement('div')
 full_screen.appendChild(fish)
