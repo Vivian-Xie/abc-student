@@ -3,6 +3,7 @@ let eatenOnes = [];
 let tongue=document.createElement('div');
 document.body.appendChild(tongue);
 tongue.className="tongue";
+tongue.style.transform="skew(30deg)"
 
 for (let i = 0; i < tags.length; i++) {
   const getOffset = (el) => {
@@ -14,8 +15,7 @@ for (let i = 0; i < tags.length; i++) {
   }
   // find out which tags are actualy relevant (eg not empty strings)
   if (tags[i].textContent != "") {
-    tags[i].addEventListener("mouseover", () => {
-      // can be changed according to the lizard
+    tags[i].addEventListener("mouseover", (e) => {
       
       
       eatenOnes.push({
@@ -27,17 +27,26 @@ for (let i = 0; i < tags.length; i++) {
         tags[i].style.visibility = "hidden";
         tags[i].style.pointerEvents = "none";
       }, 500);
-      console.log(getOffset(tags[i]).left + "+" + getOffset(tags[i]).top);
-      // var tongueWidth=getOffset(tags[i]).top;
-      // var tongueHeight=getOffset(tags[i]).left;
-      // tongueHeight=Math.max(tongueHeight-window.width()/2,window.width()/2-tongueHeight)
-      // tongue.style.width=tongueWidth;
-      // tongue.style.transform="skew("+Math.atanh(tongueWidth/tongueHeight)+"deg)"
+      // console.log(getOffset(tags[i]).left + "+" + getOffset(tags[i]).top);
+      // var tongueWidth=getOffset(tags[i]).left;
+      // var tongueHeight=getOffset(tags[i]).top;
+      var tongueWidth=e.clientX;
+      var tongueHeight=e.clientY;
+      console.log("tongue"+tongueWidth+"+"+tongueHeight);
+      console.log(window.outerHeight);
+      // can be changed according to the lizard
+      tongueHeight=Math.abs(tongueHeight-window.outerHeight/2);
+      tongue.style.width=(tongueWidth+30)+"px";
+      // console.log(tongueWidth+"px");
+      tongue.style.backgroundImage.size="100%"
+      console.log(Math.atan(tongueWidth/tongueHeight));
+      tongue.style.transformOrigin="0 30%"
+      tongue.style.transform="rotate("+Math.atan(-tongueWidth/tongueHeight)*180/Math.PI+"deg)"
       chrome.runtime.sendMessage(
         { msg: eatenOnes }
       );
     })
-
+    
   }
 }
         // x = e.clientX

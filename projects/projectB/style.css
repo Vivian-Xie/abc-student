@@ -2,9 +2,9 @@
 position:fixed;
 left:0;
 /* depend on the lizard */
-top:30%;
-background-image: url('./images/tongue.png');
+top:50%;
+background: url('https://vivian-xie.github.io/abc-student/projects/projectB/images/tongue.png') no-repeat left top;
 width:200px;
-height:30px;
-
+height:300px;
+background-size: 100% auto;
 }
