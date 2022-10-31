@@ -3,7 +3,6 @@ let eatenOnes = [];
 let tongue=document.createElement('div');
 document.body.appendChild(tongue);
 tongue.className="tongue";
-tongue.style.transform="skew(30deg)"
 
 for (let i = 0; i < tags.length; i++) {
   const getOffset = (el) => {
@@ -27,21 +26,28 @@ for (let i = 0; i < tags.length; i++) {
         tags[i].style.visibility = "hidden";
         tags[i].style.pointerEvents = "none";
       }, 500);
+
+      console.log("Leon's method"+getOffset(tags[i]).left+"+"+getOffset(tags[i]).top);
       // console.log(getOffset(tags[i]).left + "+" + getOffset(tags[i]).top);
-      // var tongueWidth=getOffset(tags[i]).left;
-      // var tongueHeight=getOffset(tags[i]).top;
-      var tongueWidth=e.clientX;
-      var tongueHeight=e.clientY;
-      console.log("tongue"+tongueWidth+"+"+tongueHeight);
-      console.log(window.outerHeight);
+      let tongueWidth=getOffset(tags[i]).left;
+      let tongueHeight=getOffset(tags[i]).top;
       // can be changed according to the lizard
-      tongueHeight=Math.abs(tongueHeight-window.outerHeight/2);
-      tongue.style.width=(tongueWidth+30)+"px";
-      // console.log(tongueWidth+"px");
+      let lizHead=window.innerHeight/2
+      if (tongueHeight>lizHead){
+        tongueHeight=tongueHeight-lizHead
+      }else{
+        tongueHeight=lizHead-tongueHeight
+      }
+      console.log("Vivian's tongue"+tongueWidth+"+"+tongueHeight);
+      tongueHeight=Math.abs(tongueHeight-lizHead);
+      tongue.style.width=getOffset(tags[i]).left+"px";
       tongue.style.backgroundImage.size="100%"
-      console.log(Math.atan(tongueWidth/tongueHeight));
-      tongue.style.transformOrigin="0 30%"
-      tongue.style.transform="rotate("+Math.atan(-tongueWidth/tongueHeight)*180/Math.PI+"deg)"
+      // console.log(Math.atan(tongueWidth/tongueHeight));
+      // console.log((Math.atan(-tongueWidth/tongueHeight))*180/Math.PI);
+      tongue.style.transformOrigin="0 50%"
+      // tongue.style.transform="rotate("+(Math.atan(1))*180/Math.PI+"deg)"
+      
+      tongue.style.transform="rotate("+(Math.atan(-tongueWidth/tongueHeight))*180/Math.PI+"deg)"
       chrome.runtime.sendMessage(
         { msg: eatenOnes }
       );
