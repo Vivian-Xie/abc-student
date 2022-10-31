@@ -1,10 +1,10 @@
-.tongue{
-position:fixed;
-left:0;
-/* depend on the lizard */
-top:50%;
-background: url('https://vivian-xie.github.io/abc-student/projects/projectB/images/tongue.png') no-repeat left top;
-width:200px;
-height:300px;
-background-size: 100% auto;
+.tongue {
+    position: fixed;
+    left: 0;
+    /* depend on the lizard */
+    top: 50%;
+    background: url('https://vivian-xie.github.io/abc-student/projects/projectB/images/tongue2.png') no-repeat left top;
+    width: 200px;
+    height: 30px;
+    background-size: 100% 30px;
 }
