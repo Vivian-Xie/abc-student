@@ -10,7 +10,12 @@ btn.addEventListener("click", () => {
   console.log("clicked");
   start = true
   countDown()
-  chrome.runtime.sendMessage({ message: "btn_clicked" })
+  chrome.runtime.sendMessage({ message: "btn clicked" }, function (response) {
+    console.log("hear from backgr:", response);
+      min.innerHTML = response.min;
+      sec.innerHTML = response.sec;
+  });
+  
 })
 
 let start = false;
@@ -28,6 +33,9 @@ function countDown() {
       seconds = size(seconds)
       min.innerHTML = minutes;
       sec.innerHTML = seconds;
+      chrome.storage.sync.set({min: minutes,sec:seconds}, function() {
+        console.log('Value is set to ' + minutes+":"+seconds);
+      });
     }
     else {
       clearInterval(timer);
@@ -45,13 +53,7 @@ function size(num) {
   return num < 10 & num >= 0 ? '0' + num : num;
 }
 
-chrome.runtime.sendMessage({ message: "start and stop counting" }, function (response) {
-  console.log("hear from backgr:", response);
-  if (typeof mytime !== "undefined" && mytime.min !== "undefined" && mytime.sec !== "undefined") {
-    min.innerHTML = response.min;
-    sec.innerHTML = response.sec;
-  }
-});
+
 
 
 
