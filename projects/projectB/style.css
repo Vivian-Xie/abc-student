@@ -7,4 +7,13 @@
     width: 200px;
     height: 30px;
     background-size: 100% 30px;
+    outline: red 1px solid;
+    transition: width 1s;
+
+}
+.tongue:before{
+    width:0;
+}
+.tongue:after{
+    width:0;
 }

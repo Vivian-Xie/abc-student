@@ -12,13 +12,19 @@
         }
       ],
       "permissions": [
-        "activeTab"
+        "activeTab",
+        "storage"
       ],
       "action": {
-        "default_title": "tomato.jpg",   
+        "default_icon ": "tomato.png",   
         "default_popup": "popup/popup.html"  
       },
+      "icons": {
+
+        "16": "tomato.png"
+    
+      },
       "background": {
-        "service_worker": "content.js"
+        "service_worker": "background.js"
       }
   }
