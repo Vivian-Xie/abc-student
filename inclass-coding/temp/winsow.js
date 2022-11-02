@@ -1,4 +1,4 @@
-var lizardImg = chrome.runtime.getURL('about:blank');
+var lizardImg = chrome.extension.getURL('www.baidu.com');
 let lizardWidth=300;
 let lizardHeight=500;
 var titleBar = 22;
@@ -44,6 +44,7 @@ function bodify(win){
 }
 
 function appendliz(win){
+
   var lizardTop = win.top + (win.height / 4);
   var lizard = win.left - lizardWidth;
   lizard.moveTo(lizardLeft, lizardTop);

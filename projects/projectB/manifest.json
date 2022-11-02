@@ -5,7 +5,6 @@
   "description": "a lizard that eats link",
   "content_scripts": [
     {
-  
       "js": [
         "content.js"
       ],
@@ -18,19 +17,16 @@
       
     }
   ],
-  "action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup/popup.html"
-  },
   "icons": {
     "16": "icon.png"
 
   },
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "system.display"
   ],
   "background": {
-    "service_worker": "background.js"
+    "serivce_worker": "background.js"
   }
 }
