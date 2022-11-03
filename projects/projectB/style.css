@@ -3,7 +3,7 @@
     left: 0%;
     /* depend on the lizard */
     top: 50%;
-    background: url('https://vivian-xie.github.io/abc-student/projects/projectB/images/tongue2.png') no-repeat left top;
+    background: url('https://vivian-xie.github.io/abc-student/projects/tongue2.png') no-repeat left top;
     width: 0px;
     height: 30px;
     background-size: 100% 30px;
@@ -16,7 +16,7 @@
     left: -100px;
     /* depend on the lizard */
     top: 48%;
-    background: url('https://vivian-xie.github.io/abc-student/projects/projectB/lizard.jpg') no-repeat left top;
+    background: url('https://vivian-xie.github.io/abc-student/projects/projectB/lizard.png') no-repeat left top;
     width: 100px;
     height: 400px;
     background-size: 100% auto;

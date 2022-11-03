@@ -1,0 +1,22 @@
+
+html{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #c30000, #8b0000);
+}
+.text{
+    position: relative;
+}
+a{
+    position: absolute;
+    color:white;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: 0.5s;
+    padding: 1%;
+}
+a:hover {
+    font-size: 150%;
+    color: black;
+    background-color: white;
+  }
