@@ -18,6 +18,17 @@
       ]
     }
   ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*.jpg",
+        "*.wav"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
   "background": {
     "service_worker": "background.js"
   },

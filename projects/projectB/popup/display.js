@@ -11,7 +11,7 @@ chrome.storage.local.get(['linkArray'], function (result) {
             a.title = result.linkArray[i].text+'<br>/<br>';
             a.href = result.linkArray[i].link;
             const top = Math.floor(Math.random() * 700) 
-            const left = Math.floor(Math.random() * 800) 
+            const left = Math.floor(Math.random() * 1200) 
             a.style.top = top + 'px'
             a.style.left = left + 'px'
             document.getElementById('text').appendChild(a);

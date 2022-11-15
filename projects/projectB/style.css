@@ -1,25 +1,28 @@
 .tongue {
     position: fixed;
+    margin-left: 0px;
     left: 0%;
     /* depend on the lizard */
-    top: 50%;
+    top: 50.5%;
     background: url('https://vivian-xie.github.io/abc-student/projects/tongue2.png') no-repeat left top;
     width: 0px;
     height: 30px;
     background-size: 100% 30px;
-    transition: width 0.5s;
-    transition: marginLeft 0.5s;
-    z-index:9999 !important;
+    opacity: 0;
+    transition: width 1s;
+    transition: left 0.5s;
+    z-index: 9999 !important;
 }
-.liz{
+
+.liz {
     position: fixed;
     left: -100px;
     /* depend on the lizard */
     top: 48%;
-    background: url('https://vivian-xie.github.io/abc-student/projects/projectB/lizard.png') no-repeat left top;
+    background: url('https://vivian-xie.github.io/abc-student/projects/projectB/lizard.jpg') no-repeat left top;
     width: 100px;
     height: 400px;
     background-size: 100% auto;
     transition: left 0.5s;
-    z-index:9999 !important;
+    z-index: 9999 !important;
 }
