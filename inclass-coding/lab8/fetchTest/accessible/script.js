@@ -15,7 +15,7 @@ getDataButton.addEventListener("click",()=>{
         console.log(processedData.data);
         let newappend=processedData.data
         // 为新收到的data里的每一项建一个页面<p>
-        newappend.forEach(des=>{
+        newappend.forEach((des)=>{
             let p=document.createElement("p")
             p.innerHTML=des
             document.body.appendChild(p)
