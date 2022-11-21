@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddle Garden</title>
+    <style>
+        *{
+            margin:0 0;
+            padding:0 0;
+        }
+        main {
+            height:100vh;
+            /* display:inline-block; */
+            background-image: url(backgr.png);
+        }
+
+        p {
+            margin-top:22px;
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 900;
+        }
+        span{
+            font-size: 38px;
+
+        }
+
+        #heading {
+            display:inline-block;
+            margin-top: 10%;
+            position: relative;
+            -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
+        }
+
+        #heading span {
+            font-family: 'Alfa Slab One', cursive;
+            position: relative;
+            display: inline-block;
+            /* text-transform: uppercase; */
+            animation: waviy 2.4s infinite;
+            animation-delay: calc(.1s * var(--i));
+
+        }
+
+        @keyframes waviy {
+
+            0%,
+            40%,
+            100% {
+                transform: translateY(0)
+            }
+
+            20% {
+                transform: translateY(-20px)
+            }
+        }
+
+        #appear {
+            display: none;
+        }
+
+        .answerBox {
+            margin-top: 10%;
+            width:100%;
+            display: inline-block;
+            text-align: center;
+        
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+
+        #inputt {
+            background-color: rgb(243,228,199);
+            width: 40%;
+            line-height: 30px;
+            font-size: 25px;
+        }
+
+        #btn {
+            background-color: rgb(243,228,199);
+            width: 35px;
+            height: 35px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <p id="heading">
+            <span style="--i:1">W</span><span style="--i:2">e</span><span style="--i:3">l</span><span
+                style="--i:4">c</span><span style="--i:5">o</span><span style="--i:6">m</span><span
+                style="--i:7">e</span>
+            <span style="--i:8"> </span>
+            <span style="--i:9">t</span><span style="--i:10">o</span>
+            <span style="--i:11"> </span>
+            <span style="--i:12">M</span><span style="--i:13">y</span>
+            <span style="--i:14"> </span>
+            <span style="--i:15">M</span><span style="--i:16">u</span><span style="--i:17">s</span><span
+                style="--i:18">i</span><span style="--i:19">c</span>
+            <span style="--i:20"> </span>
+            <span style="--i:21">G</span><span style="--i:22">a</span><span style="--i:23">r</span><span
+                style="--i:24">d</span><span style="--i:25">e</span><span style="--i:26">n</span>
+        </p>
+        <div id="disappear">
+            <p>What is the next line of the Song?</p>
+            <p>"When I was young, I'd listen to the radio"</p>
+            <div class="answerBox">
+                <div>
+                <input type="text" id="inputt">
+                <button id="btn"> ♬</button>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-//npm i init ----每次新建
+//npm init ----每次新建
 // npm i express ----安装express
 // node server.js ----启动方法
 
