@@ -1,19 +1,7 @@
-//npm i init ----每次新建
-// npm i express ----安装express
-// node server.js ----启动方法
-
-// npm i nodemon ----实时刷新改变页面
-// nodemon server.js --打开
-// 
-// fetch 用ajax
-
-
-
-console.log("hihi");
 //require node module 
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3000||
 let collectedAnswer = [];
 
 // the global file that need to be pushed 
