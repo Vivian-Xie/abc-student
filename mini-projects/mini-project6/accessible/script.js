@@ -9,10 +9,18 @@ let appear=document.getElementById("appear")
 
 
 button.addEventListener("click",()=>{
-    let text = input.value;
+  let text = input.value;
+  console.log(text.toLowerCase()==="waiting for my favorite song"||text.toLowerCase()==="waiting for my favorite songs"||text.toLowerCase()==="waiting for my favorite songs");
+  if(text.toLowerCase()==="waiting for my favorite song"||text.toLowerCase()==="waiting for my favorite songs"||text.toLowerCase()==="waiting for my favorite songs"){
+    window.location.href="/entrance?password=yesterday";
     let route = "/sendAnswer?answer="+text;
     fetch(route);
-    if(input.value==="Waiting for my favorite songs"){
-     window.location.href="/entrance?password=yesterday";
-    }
-  })
+  }else{
+    input.value="Wrong Answer!"
+  }
+})
+input.addEventListener("click",()=>{
+  if (input.value="Wrong Answer!"){
+    input.value=""
+  }
+})
