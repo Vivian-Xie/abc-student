@@ -1,7 +1,7 @@
 //require node module 
 const express = require('express')
 const app = express()
-const port = 3000||
+const port = 3000
 let collectedAnswer = [];
 
 // the global file that need to be pushed 
