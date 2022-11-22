@@ -4,7 +4,7 @@
 ## Intro
 Want to have a lizard? Here’s your chance to feed a cyber lizard. It accompanies you while browsing, but be careful—it feeds on links. The lizard will sneakily(or not) eat your link and leave the space blank. But don’t worry too much if your links are gone, check the lizard’s stomach to see if they are inside. Of course, you can also put the lizard to sleep if you get tired of its company. Enjoy the fun/trouble brought by your little cyber-pet.
 
-![demo](demo.gif)
+![demo](img/demo.gif)
 
 ## Technical explanation
 We use the code shared by the professor to get the exact location of the hovered link for reference and store it once the event mouseover is detected. At the same time, the lizard will appear from the left edge and reach out its tongue towards the link. Once the link is collected, it will disappear immediately by adjusting the visibility in css and a new class will be attached to it to prevent it from being collected again, which is quite important as it will be messy if a link appears multiple times when displaying. By using chrome.sendMassage, the texts and links collected will be sent to the background and stored, where the page of the lizard’s stomach that displays all links can get the local storage and show them. 

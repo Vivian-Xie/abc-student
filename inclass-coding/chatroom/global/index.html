@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="chatwrapper">
+
+            <div class="namebox">
+                <p>I am <input id="name" type="text" placeholder="...?" autocomplete="off"></p>
+            </div>
+
+            <div class="chatbox">
+                <ul id="chat">
+                    <li><span class="sender">Leon: </span>
+                        <p class="colorbox">I am here.</p> </li>
+                    <li><span class="sender">Leon2: </span>
+                        <p class="colorbox">I am here.</p></li>
+                </ul>
+            </div>
+
+            <div class="messagebox">
+                <input type="text" id="message" placeholder="say something... " autocomplete="off"> <button id="send">Send</button>
+                <!-- 这里input和button不换行但空格,可以制造margin -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
