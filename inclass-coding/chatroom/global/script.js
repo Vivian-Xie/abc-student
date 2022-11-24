@@ -27,14 +27,16 @@ socket.on("incoming",(data)=>{
     let message=data.message;
     let li=document.createElement("li")
     // let span=document.createElement('span')
-    li.innerHTML="<span class=sender>"+name+": </span><p>"+message+"</p>"
+    li.innerHTML="<span class='sender'>"+name+": </span><p class='chatbox'>"+message+"</p>"
     // li.appendChild(p);
     chatbox.appendChild(li)
     chatbox.scrollTop=chatbox.scrollHeight;
     console.log("my socket is",socket.id);
     if (data.id===socket.id){
         li.style.textAlign="right"
-        li.lastElementChild.className='me'
+        li.lastElementChild.classList.add('colorbox')
+        li.lastElementChild.classList.add('me')
+        li.lastElementChild.classList.remove('chatbox')
     }
 })
 

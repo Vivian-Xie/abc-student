@@ -1,0 +1,22 @@
+#buttonOutput{
+  width:100px;
+  height:100px;
+  background-color: black;
+}
+input{
+  display: block;
+}
+
+@keyframes stretch{
+  0%{
+    transform: rotate(0deg);
+    /* width:auto; */
+  }
+  /* 90%{
+    width:100vw;
+  } */
+  100%{
+    transform:rotate(360deg); 
+    width:auto;
+  }
+}
