@@ -70,7 +70,7 @@ io.on('connection', (socket) => {
 
   // text
   socket.on('textToAllButMe', (msg) => {
-    socket.broadcast.emit("textToAllButMe", {from: socket.id, value: msg.value});
+    socket.broadcast.emit("text", {from: socket.id, value: msg.value});
   });  
   socket.on('textToAll', (msg) => {
     io.emit("text", {from: socket.id, value: msg.value});
@@ -82,10 +82,10 @@ io.on('connection', (socket) => {
   
   // button 1
   socket.on('button1ToAllButMe', (msg) => {
-    socket.broadcast.emit("button1ToAllButMe", {from: socket.id});
+    socket.broadcast.emit("button1", {from: socket.id});
   });  
   socket.on('button1ToAll', (msg) => {
-    io.emit("button1ToAll", {from: socket.id});
+    io.emit("button1", {from: socket.id});
   });
   socket.on('button1ToSingle', (msg) => {
     let id = msg.id;

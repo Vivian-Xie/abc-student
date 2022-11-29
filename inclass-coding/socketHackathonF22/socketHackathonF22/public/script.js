@@ -1,5 +1,5 @@
-// let socket = io("");
-let socket = io("https://abc-socket-hackathon.glitch.me");
+let socket = io("");
+// let socket = io("https://abc-socket-hackathon.glitch.me");
 let others = [];
 let myId;
 let testMode = true;

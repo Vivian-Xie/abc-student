@@ -1,10 +1,13 @@
-#buttonOutput{
+/* #buttonOutput{
   width:100px;
   height:100px;
   background-color: black;
-}
+} */
 input{
   display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @keyframes stretch{
@@ -20,3 +23,17 @@ input{
     width:auto;
   }
 }
+
+button{
+  position: relative;
+  display: inline-block;
+  margin:20px auto;
+  outline: aqua;
+}
+
+#wrapper{
+width:100%;
+text-align: center;
+}
+
+
