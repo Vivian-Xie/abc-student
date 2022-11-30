@@ -3,11 +3,17 @@
   height:100px;
   background-color: black;
 } */
+*{
+  background-color: lightgreen;
+}
 input{
   display: block;
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  border-radius:25px;
+  text-indent: 5px;
+  font-size: 20px;
 }
 
 @keyframes stretch{
@@ -28,7 +34,33 @@ button{
   position: relative;
   display: inline-block;
   margin:20px auto;
-  outline: aqua;
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+button:after {
+  content: "";
+  padding: 20px;
+  width: 200px;
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
 }
 
 #wrapper{
@@ -36,4 +68,11 @@ width:100%;
 text-align: center;
 }
 
+div{
+  background-color: none;
+}
+.unhappy{
+
+  background-color: none;
+}
 

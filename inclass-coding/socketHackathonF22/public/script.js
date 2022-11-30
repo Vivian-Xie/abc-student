@@ -35,9 +35,11 @@ function buttonReceived(){
 btn1.addEventListener("click",()=>{
   if (tweetbox.value.trim()!=""){
     socket.emit("textToAllButMe", {value:tweetbox.value} )
-
+    tweetbox.value=""
   }
 })
+
+
 btn2.addEventListener("click",()=>{
   socket.emit("button1ToAllButMe")
   let allbtn=document.querySelectorAll("button");
@@ -50,6 +52,8 @@ btn2.addEventListener("click",()=>{
 
 
 
+
+
 socket.on("text",(msg)=>{
   console.log("text");
  let div=document.createElement("div");
@@ -57,8 +61,10 @@ socket.on("text",(msg)=>{
  document.body.appendChild(div)
  div.appendChild(p)
  p.innerHTML=msg.value
+ p.className="unhappy"
  div.style.animation="stretch 5s"
 })
+
 socket.on("button1",()=>{
   console.log("button1ToAllButMe")
   let allbtn=document.querySelectorAll("button");
