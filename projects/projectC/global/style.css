@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+div{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#grid_container{
+
+	float: left;
+	position: relative;
+    /* background-color: aquamarine; */
+    /* the space between grids set to zero */
+    border-collapse: collapse;
+}
+
+
+
+td{ 
+    margin:1px;
+    width:30px;
+    height:30px;
+	float:left;
+    border: 2px solid grey;
+    background-color: #eee;
+    text-align: center;
+    /* vertical-align:middle; */
+    font-size: 20px;
+    line-height:30px;
+}
