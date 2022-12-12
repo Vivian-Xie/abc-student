@@ -11,12 +11,37 @@
 </head>
 
 <body>
-    <table id="grid_container">
-        <tbody>
+    <div class="prepare" id="preparation">
+        <h1>Hide and Seek!</h1>
+        <h3 id="wait">Start the game by clicking the button↓</h3>
+        <button id="start">Start!</button>
+        <p>In this room, you are: </p>
+        <div id="rules">
+            <div id="seeker">
+                <h2>Seeker</h2>
+                <img src="qezx.jpg" alt="">
+                <p id="se-p">Your role is to catch others. You can go <b>diagonally, horizontally and vertically</b>.
+                </p>
+            </div>
+            <div id="hider">
+                <h2>Hider</h2>
+                <img src="wasd.jpg" alt="">
+                <p id="hi-p">Your role is to avoid being caught. You can only go <b>horizontally and vertically</b>.
+                </p>
+            </div>
+        </div>
+        <div id="introduction">The time of the game is infinite! You can enter or quit a room at any time and compete
+            with your friends as you like. A room will be closed as soon as the seeker quits or all the hiders are
+            caught.</div>
+    </div>
+    <div id="grid_wrapper">
+        <h1>Hide and Seek!</h1>
+        <table id="grid_container">
+            <tbody>
 
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    </div>
     <script src="script.js"></script>
 </body>
 
