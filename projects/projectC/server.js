@@ -11,7 +11,7 @@ let random_tree = [];
 let rows = 0;
 let barrier = false;
 
-let random_emoji = Math.floor(Math.random() * 4 + 1) - 1;
+
 
 app.use(express.static('global'))
 
@@ -71,6 +71,7 @@ io.on('connection', (socket) => {
 
   socket.on("initialize", (data) => {
     // console.log("receiving starting with", data)
+    let random_emoji = Math.floor(Math.random() * 4 + 1) - 1;
     data.id = socket.id;
     data.emoji=random_emoji;
     if (allData.find(isAppended) == undefined) {
