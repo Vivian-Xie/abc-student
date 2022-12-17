@@ -1,3 +1,5 @@
+Download the extension from here
+
 [Download the extension from here](https://vivian-xie.github.io/abc-student/mini-projects/mini-project5.zip)
 
 ![Image text](ocean.gif)
