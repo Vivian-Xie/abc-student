@@ -28,17 +28,19 @@ io.on('connection', (socket) => {
   function isAppended(data) {
     return data.id == socket.id;
   }
-  
+
 
   function allocateRoom() {
     let roomWithSpot = rooms.findIndex(room => {
       return room.members.length < 4 && room.members.length != 0
     })
+    let random_emoji = Math.floor(Math.random() * 4 + 1) - 1;
     if (roomWithSpot == -1) {
       let newIdx = rooms.length
       rooms.push({
         roomIndex: rooms.length,
         members: [socket.id],
+        emoji:random_emoji
       })
       // rooms[0].chaser = rooms[0].members[0];
       return newIdx;
@@ -53,12 +55,12 @@ io.on('connection', (socket) => {
 
   socket.on("mapping", (row_num) => {
     if (random_tree.length == 0) {
-      for (let i = 0; i < ((row_num) / 2) ** 2+6; i++) {
+      for (let i = 0; i < ((row_num) / 2) ** 2 + 6; i++) {
         do {
           random_row = Math.floor((Math.random() * row_num) + 1) - 1;
           random_list = Math.floor((Math.random() * row_num) + 1) - 1;
         }
-        while ((random_row == 0 && random_list == 0) || (random_row == row_num - 1 && random_list == row_num - 1) || (random_row == 0 && random_list == row_num - 1) || (random_row == row_num - 1 && random_list == 0) || (random_row == 0 && random_list == 1) || (random_row == row_num - 1 && random_list == 1) || (random_row == row_num - 2 && random_list == row_num - 1)||(random_row == 0 && random_list == row_num - 2) );
+        while ((random_row == 0 && random_list == 0) || (random_row == row_num - 1 && random_list == row_num - 1) || (random_row == 0 && random_list == row_num - 1) || (random_row == row_num - 1 && random_list == 0) || (random_row == 0 && random_list == 1) || (random_row == row_num - 1 && random_list == 1) || (random_row == row_num - 2 && random_list == row_num - 1) || (random_row == 0 && random_list == row_num - 2));
         random_tree.push([random_row, random_list])
       }
     }
@@ -71,11 +73,11 @@ io.on('connection', (socket) => {
 
   socket.on("initialize", (data) => {
     // console.log("receiving starting with", data)
-    let random_emoji = Math.floor(Math.random() * 4 + 1) - 1;
+    
     data.id = socket.id;
-    data.emoji=random_emoji;
     if (allData.find(isAppended) == undefined) {
       data.room = allocateRoom();
+      data.emoji = rooms[data.room].emoji;
       if (socket.id == rooms[data.room].members[0]) {
         data.role = 'chaser';
       } else if (socket.id == rooms[data.room].members[1]) {
@@ -189,17 +191,18 @@ io.on('connection', (socket) => {
         console.log(loser);
         console.log("survivor caught");
         io.to(loser.id).emit("survivor out");
-        allData.splice(allData.findIndex(data=> {
+        allData.splice(allData.findIndex(data => {
           return data.id == loser.id;
         }), 1);;
-      rooms[loser.room].members.splice(loser.id, 1);
-      if(rooms[loser.room].members.length == 0 && loser.room == rooms.length-1){
-        rooms.splice(loser.room, 1);
-      }else if(rooms[loser.room].members.length != 0){
-        // let other in this room know 
-        socket.to("room" + loser.room).emit("personLeft")
-        
-      }
+        rooms[loser.room].members.splice(loser.id, 1);
+        if (rooms[loser.room].members.length == 0 && loser.room == rooms.length - 1) {
+          rooms.splice(loser.room, 1);
+        } else if (rooms[loser.room].members.length == 1) {
+          // let other in this room know 
+          socket.to("room" + loser.room).emit("chaser win")
+        } else {
+          socket.to("room" + loser.room).emit("personLeft")
+        }
       }
 
       ///send completed data to everyone
@@ -216,22 +219,27 @@ io.on('connection', (socket) => {
     var thisdata = allData.find(isAppended)
     if (thisdata) {
       if (thisdata.role == 'chaser') {
-        io.in("room" + thisdata.room).emit("survivor win")
+        io.in("room" + thisdata.room).emit("survivor win");
+        allData.splice(allData.findIndex(data => {
+          return data.id == thisdata.id;
+        }), 1)
+        rooms[thisdata.room].members.splice(0,rooms[thisdata.room].members.length);
         console.log("chaser out, end of game");
       } else {
-        io.in("room" + thisdata.room).emit("survivor dis",thisdata)
+        io.in("room" + thisdata.room).emit("survivor dis", thisdata)
         console.log("one survivor disconnected");
-      }
-      allData.splice(allData.findIndex(data=> {
-        return data.id == thisdata.id;
-      }), 1);
-      rooms[thisdata.room].members.splice(thisdata.id, 1);
-      if(rooms[thisdata.room].members.length == 0 && thisdata.room == rooms.length-1){
-        rooms.splice(thisdata.room, 1);
-      }else if(rooms[thisdata.room].members.length != 0){
-        // let other in this room know 
-        socket.to("room" + thisdata.room).emit("personLeft")
-        
+        allData.splice(allData.findIndex(data => {
+          return data.id == thisdata.id;
+        }), 1);
+        rooms[thisdata.room].members.splice(thisdata.id, 1);
+        if (rooms[thisdata.room].members.length == 0 && thisdata.room == rooms.length - 1) {
+          rooms.splice(thisdata.room, 1);
+        } else if (rooms[thisdata.room].members.length == 1) {
+          // let other in this room know 
+          socket.to("room" + loser.room).emit("chaser win")
+        } else {
+          socket.to("room" + loser.room).emit("personLeft")
+        }
       }
       console.log(allData);
       socket.leave('room' + thisdata.room);

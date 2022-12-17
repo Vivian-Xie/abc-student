@@ -125,8 +125,15 @@ function protection(x, y) {
     return [x, y]
 }
 
+
+function isAppended(data) {
+    return data.id == socket.id;
+  }
+
 socket.on("refresh", (allData) => {
     wait_text.innerHTML = "Entering the room..."
+    let thisdata=allData.find(isAppended);
+    console.log(emojiList[allData[0].emoji][thisdata])
     setTimeout(() => {
         prepare_box.style.display = "none";
     }
@@ -176,6 +183,17 @@ socket.on("survivor out", () => {
         , 2000)
 
 })
+socket.on("chaser win", () => {
+        let div_win = document.createElement('div');
+        document.body.appendChild(div_win);
+        div_win.className = 'prepare';
+        let text_win = document.createElement('h1');
+        div_win.appendChild(text_win);
+        // text_win.className='';
+        text_win.innerHTML = " </br>Everyone is under arrested.</br>Congratulations, Seeker!</br>For starting a new game, please refresh to enter another room.</br>😘";
+    })
+
+
 socket.on("survivor dis", (data) => {
     container.rows[data.curY
     ].cells[data.curX].innerHTML = ""
